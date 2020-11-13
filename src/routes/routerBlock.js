@@ -11,7 +11,7 @@ export const store = configureStore();
 
 export const isMobile = checkIfMobileBrowser();
 
-export const dataBaseUrl = isMobile ? `` : ``;
+export const dataBaseUrl = isMobile ? `http://192.168.1.144:5000/primarches/`: `http://localhost:5000/primarches/`;
 
 function checkIfMobileBrowser() {
   let check = false;

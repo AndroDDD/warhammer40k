@@ -316,6 +316,11 @@ const CharacterData: React.FC = () => {
     return configgedNumberOfCharButtons;
   });
 
+  // Declare variable tracking if video is playing
+  const [isVideoPlaying, setIsVideoPlaying] = React.useState(() => {
+    return false;
+  });
+
   // Declare function handling initial data retrieval for component view/s setup
   const initializeCharacterDataRetrieval = (
     characterIndexToRetrieve?: number
@@ -394,7 +399,7 @@ const CharacterData: React.FC = () => {
     });
   }, [characterCoverImageRef.current]);
 
-  // Handle characters navbar cover toggel
+  // Handle characters navbar cover toggle
   React.useEffect(() => {
     if (isNavbarUncovered) {
       gsapTimelineRef.current = gsap
@@ -461,6 +466,9 @@ const CharacterData: React.FC = () => {
   React.useEffect(() => {
     console.log({ characterDataName: previousCharacterData.name });
     if (previousCharacterData.name !== ``) {
+      setIsVideoPlaying(() => {
+        return false;
+      });
       const tl = gsap.timeline();
       if (characterDataCoverViewRef) {
         tl.set(characterCoverImageRef.current, {
@@ -476,7 +484,7 @@ const CharacterData: React.FC = () => {
             opacity: 0,
           })
           .to(charactersNavbarViewDataLoadRef.current, {
-            duration: 2,
+            duration: 1,
             opacity: 1,
           })
           .call(() => {
@@ -486,7 +494,7 @@ const CharacterData: React.FC = () => {
                 zIndex: 10,
               })
                 .to(characterDataCoverViewRef.current, {
-                  duration: 3,
+                  duration: 1.5,
                   opacity: 1,
                 })
                 .to(
@@ -495,9 +503,9 @@ const CharacterData: React.FC = () => {
                     characterDataCoverViewRef.current,
                   ],
                   {
-                    duration: 5,
+                    duration: 1,
                     bottom: "-200%",
-                    delay: -0.5,
+                    delay: 1,
                   }
                 )
                 .set(characterCoverImageRef.current, {
@@ -532,7 +540,7 @@ const CharacterData: React.FC = () => {
                     characterDataCoverViewRef.current,
                   ],
                   {
-                    duration: 5,
+                    duration: 1,
                     bottom: "-200%",
                   }
                 )
@@ -645,16 +653,16 @@ const CharacterData: React.FC = () => {
         .set(clarifiedCurCharView, {
           css: gsapSelectedStyle,
         })
-        .to(clarifiedCurCharView, { duration: 5, left: "0%" })
+        .to(clarifiedCurCharView, { duration: 2, left: "0%" })
         .fromTo(
           clarifiedPrevCharView,
           {
             left: "0%",
           },
           {
-            duration: 5,
+            duration: 2,
             left: "-105%",
-            delay: -5,
+            delay: -2,
           }
         )
         .call(() => {
@@ -804,13 +812,24 @@ const CharacterData: React.FC = () => {
                     playerVars: { start: 0 },
                   },
                 }}
-                playing={false}
+                playing={isVideoPlaying}
                 onStart={() => {
+                  setIsVideoPlaying(() => {
+                    return true;
+                  });
                   console.log(`React Player has loaded with message: Started`);
                 }}
                 onPlay={() => {}}
-                onPause={() => {}}
-                onEnded={() => {}}
+                onPause={() => {
+                  setIsVideoPlaying(() => {
+                    return false;
+                  });
+                }}
+                onEnded={() => {
+                  setIsVideoPlaying(() => {
+                    return false;
+                  });
+                }}
                 onProgress={() => {}}
               />
             </View>
