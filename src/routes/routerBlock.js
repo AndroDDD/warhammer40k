@@ -5,13 +5,15 @@ import configureStore from "../app/configureStore";
 import history from "../history/history";
 import { ConnectedRouter } from "connected-react-router";
 
-import CharacterData from "../features/Interfaces/Desktop/CharacterData/CharacterData"
-
+import CharacterData from "../features/Interfaces/Desktop/CharacterData/CharacterData";
+import DesktopAPI from "../features/Interfaces/Desktop/API/API";
 export const store = configureStore();
 
 export const isMobile = checkIfMobileBrowser();
 
-export const dataBaseUrl = isMobile ? `http://192.168.1.144:5000/primarches/`: `http://localhost:5000/primarches/`;
+export const dataBaseUrl = isMobile
+  ? `http://192.168.1.144:5000/characters/`
+  : `http://localhost:5000/characters/`;
 
 function checkIfMobileBrowser() {
   let check = false;
@@ -70,17 +72,27 @@ const RoutesComposed = () => {
               component={
                 isMobile
                   ? () => {
-                      return <CharacterData />
+                      return <CharacterData />;
                     }
                   : () => {
                       return <CharacterData />;
                     }
               }
             />
-            <ProtectedRoute
-              path="/protected"
-              component={CharacterData}
+            <Route
+              exact
+              path="/api"
+              component={
+                isMobile
+                  ? () => {
+                      return <DesktopAPI />;
+                    }
+                  : () => {
+                      return <DesktopAPI />;
+                    }
+              }
             />
+            <ProtectedRoute path="/protected" component={CharacterData} />
           </Switch>
         </Router>
       </ConnectedRouter>

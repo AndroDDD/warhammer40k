@@ -1,0 +1,1306 @@
+// Style for underlying api page display
+.mainAPIDisplayClass {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  overflow: hidden;
+}
+
+// Styles for form
+.formEmbedder {
+  box-sizing: border-box;
+  align-items: center;
+}
+
+.innerFormMainDisplay {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  box-sizing: border-box;
+  border: 1px solid blue;
+  direction: ltr;
+  overflow-x: hidden;
+  overflow-y: hidden;
+}
+
+.selectionSection {
+  width: 22.5%;
+  height: 100%;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border: 1px solid orangered;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+.selectionSectionNavigationBar {
+  width: 10%;
+  height: 100%;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  border: 1px solid teal;
+}
+
+.nextSelectionButton {
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 25%;
+  cursor: pointer;
+}
+
+.prevSelectionButton {
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 25%;
+  cursor: pointer;
+}
+
+.addSelectionButton {
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 90%;
+  height: 25%;
+  cursor: pointer;
+}
+
+.addSelectionIcon {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.selectionSectionCharacterClass {
+  width: 90%;
+  height: 100%;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid orange;
+  text-align: center;
+  font-family: monospace;
+  font-weight: 600;
+  line-height: 20px;
+}
+
+.initialInput-characterClass {
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+  display: flex;
+  background-color: black;
+  color: gainsboro;
+  text-align: center;
+  font-family: monospace;
+  letter-spacing: 2px;
+}
+
+.selectionSectionCharacter {
+  width: 90%;
+  height: 100%;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid orange;
+  text-align: center;
+  font-family: monospace;
+  font-weight: 600;
+  line-height: 20px;
+}
+
+.initialInput-characterName {
+  width: 100%;
+  height: 50%;
+  box-sizing: border-box;
+  display: flex;
+  background-color: black;
+  color: gainsboro;
+  text-align: center;
+  font-family: monospace;
+  letter-spacing: 2px;
+}
+
+.initialInput-extraText {
+  width: 100%;
+  height: 49%;
+  box-sizing: border-box;
+  display: flex;
+  background-color: black;
+  color: gainsboro;
+  text-align: center;
+  font-family: monospace;
+  letter-spacing: 2px;
+}
+
+.selectionSectionMediaType {
+  width: 90%;
+  height: 100%;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid orange;
+  text-align: center;
+  font-family: monospace;
+  font-weight: 600;
+  line-height: 20px;
+}
+
+.selectionSectionMediaInputs {
+  width: 90%;
+  height: 100%;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid orange;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+// Styles for mini form
+.miniForm {
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+// Video inputs styles
+.videosInputs {
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+// Video main display
+.video-outter-inputs-container {
+  box-sizing: border-box;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  direction: ltr;
+  background-color: black;
+  border-top: 1px solid blue;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+.video-inner-inputs-container {
+  box-sizing: border-box;
+  width: 100%;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.video-label {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 1px;
+  padding-bottom: 2px;
+  width: 90%;
+  background-color: black;
+  color: gainsboro;
+  text-align: center;
+  font-family: "Ubuntu", monospace;
+  font-size: 20px;
+  font-weight: 600;
+  letter-spacing: 3px;
+  word-break: break-all;
+  cursor: pointer;
+}
+
+.video-label:hover {
+  color: cyan;
+}
+
+.video-inputs-remove-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 10%;
+  height: 11px;
+  background-color: crimson;
+  text-shadow: -2px -1px 2px gainsboro;
+  font-size: 50px;
+  font-weight: 300;
+  padding-bottom: 13px;
+  cursor: pointer;
+}
+
+.video-inputs-remove-button:hover {
+  background-color: red;
+}
+
+// video name input
+.video-title-text-input-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 3px;
+  margin-bottom: 3px;
+  width: 100%;
+  height: auto;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+.video-title-label {
+  display: flex;
+  justify-content: flex-start;
+  height: 100%;
+  align-items: center;
+  margin-bottom: 4px;
+  padding-left: 3px;
+  padding-right: 3px;
+  padding-bottom: 2px;
+  background-color: black;
+  color: cyan;
+  font-family: monospace;
+  font-weight: 500;
+  letter-spacing: 1px;
+  cursor: default;
+}
+
+.video-title-text-input-remove-button {
+  display: none;
+}
+
+.video-title-text-input {
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  height: 100%;
+  width: 90%;
+  background-color: rgba(112, 128, 144, 0.75);
+  border: 1px solid cyan;
+  border-bottom: 3px solid cyan;
+  color: gainsboro;
+  text-align: left;
+  font-family: monospace;
+  caret-color: cyan;
+}
+
+.video-title-text-input:focus {
+  outline: none;
+}
+
+// Video url input
+.video-link-text-input-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 3px;
+  margin-bottom: 3px;
+  width: 100%;
+  height: auto;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+.video-link-label {
+  display: flex;
+  justify-content: flex-start;
+  height: 100%;
+  align-items: center;
+  margin-bottom: 4px;
+  padding-left: 3px;
+  padding-right: 3px;
+  padding-bottom: 2px;
+  background-color: black;
+  color: limegreen;
+  font-family: monospace;
+  font-weight: 500;
+  letter-spacing: 1px;
+  cursor: default;
+}
+
+.video-link-text-input-remove-button {
+  display: none;
+}
+
+.video-link-text-input {
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  width: 90%;
+  height: 100%;
+  text-align: left;
+  background-color: rgba(112, 128, 144, 0.75);
+  border: 1px solid limegreen;
+  border-bottom: 3px solid limegreen;
+  color: gainsboro;
+  font-family: monospace;
+  caret-color: limegreen;
+}
+
+.video-link-text-input:focus {
+  outline: none;
+}
+
+// Photo inputs styles
+.photosInputs {
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+// Photo main display
+.photo-outter-inputs-container {
+  box-sizing: border-box;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  direction: ltr;
+  background-color: black;
+  border-top: 1px solid blue;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+.photo-inner-inputs-container {
+  box-sizing: border-box;
+  width: 100%;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.photo-label {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 1px;
+  padding-bottom: 2px;
+  width: 90%;
+  background-color: black;
+  color: gainsboro;
+  text-align: center;
+  font-family: "Ubuntu", monospace;
+  font-size: 20px;
+  font-weight: 600;
+  letter-spacing: 3px;
+  word-break: break-all;
+  cursor: pointer;
+}
+
+.photo-label:hover {
+  color: cyan;
+}
+
+.photo-inputs-remove-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 10%;
+  height: 11px;
+  background-color: crimson;
+  text-shadow: -2px -1px 2px gainsboro;
+  font-size: 50px;
+  font-weight: 300;
+  padding-bottom: 13px;
+  cursor: pointer;
+}
+
+.photo-inputs-remove-button:hover {
+  background-color: red;
+}
+
+// photo source input
+.photo-source-file-input-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 3px;
+  margin-bottom: 3px;
+  width: 100%;
+  height: auto;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+.photo-source-label {
+  display: flex;
+  justify-content: flex-start;
+  height: 100%;
+  align-items: center;
+  margin-bottom: 4px;
+  padding-left: 3px;
+  padding-right: 3px;
+  padding-bottom: 2px;
+  background-color: black;
+  color: cyan;
+  font-family: monospace;
+  font-weight: 500;
+  letter-spacing: 1px;
+  cursor: default;
+}
+
+.photo-source-file-input-remove-button {
+  display: none;
+}
+
+.photo-source-file-input {
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  height: 100%;
+  width: 90%;
+  background-color: rgba(112, 128, 144, 0.75);
+  border: 1px solid cyan;
+  border-bottom: 3px solid cyan;
+  color: gainsboro;
+  text-align: left;
+  font-family: monospace;
+  caret-color: cyan;
+}
+
+.photo-source-file-input:focus {
+  outline: none;
+}
+
+// Excerpt inputs styles
+.excerptsInputs {
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+// Excerpt main display
+.excerpt-outter-inputs-container {
+  box-sizing: border-box;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  direction: ltr;
+  background-color: black;
+  border-top: 1px solid blue;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+.excerpt-inner-inputs-container {
+  box-sizing: border-box;
+  width: 100%;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.excerpt-label {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 1px;
+  padding-bottom: 2px;
+  width: 90%;
+  background-color: black;
+  color: gainsboro;
+  text-align: center;
+  font-family: "Ubuntu", monospace;
+  font-size: 20px;
+  font-weight: 600;
+  letter-spacing: 3px;
+  word-break: break-all;
+  cursor: pointer;
+}
+
+.excerpt-label:hover {
+  color: cyan;
+}
+
+.excerpt-inputs-remove-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 10%;
+  height: 11px;
+  background-color: crimson;
+  text-shadow: -2px -1px 2px gainsboro;
+  font-size: 50px;
+  font-weight: 300;
+  padding-bottom: 13px;
+  cursor: pointer;
+}
+
+.excerpt-inputs-remove-button:hover {
+  background-color: red;
+}
+
+// excerpt title input
+.excerpt-title-text-input-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 3px;
+  margin-bottom: 3px;
+  width: 100%;
+  height: auto;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+.excerpt-title-label {
+  display: flex;
+  justify-content: flex-start;
+  height: 100%;
+  align-items: center;
+  margin-bottom: 4px;
+  padding-left: 3px;
+  padding-right: 3px;
+  padding-bottom: 2px;
+  background-color: black;
+  color: cyan;
+  font-family: monospace;
+  font-weight: 500;
+  letter-spacing: 1px;
+  cursor: default;
+}
+
+.excerpt-title-text-input-remove-button {
+  display: none;
+}
+
+.excerpt-title-text-input {
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  height: 100%;
+  width: 90%;
+  background-color: rgba(112, 128, 144, 0.75);
+  border: 1px solid cyan;
+  border-bottom: 3px solid cyan;
+  color: gainsboro;
+  text-align: left;
+  font-family: monospace;
+  caret-color: cyan;
+}
+
+.excerpt-title-text-input:focus {
+  outline: none;
+}
+
+// Excerpt content input
+.excerpt-content-text-input-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 3px;
+  margin-bottom: 3px;
+  width: 100%;
+  height: auto;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+.excerpt-content-label {
+  display: flex;
+  justify-content: flex-start;
+  height: 100%;
+  align-items: center;
+  margin-bottom: 4px;
+  padding-left: 3px;
+  padding-right: 3px;
+  padding-bottom: 2px;
+  background-color: black;
+  color: limegreen;
+  font-family: monospace;
+  font-weight: 500;
+  letter-spacing: 1px;
+  cursor: default;
+}
+
+.excerpt-content-text-input-remove-button {
+  display: none;
+}
+
+.excerpt-content-text-input {
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  width: 90%;
+  height: 100%;
+  text-align: left;
+  background-color: rgba(112, 128, 144, 0.75);
+  border: 1px solid limegreen;
+  border-bottom: 3px solid limegreen;
+  color: gainsboro;
+  font-family: monospace;
+  caret-color: limegreen;
+}
+
+.excerpt-content-text-input:focus {
+  outline: none;
+}
+
+// Excerpt web cite input
+.excerpt-webCite-text-input-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 3px;
+  margin-bottom: 3px;
+  width: 100%;
+  height: auto;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+.excerpt-webCite-label {
+  display: flex;
+  justify-content: flex-start;
+  height: 100%;
+  align-items: center;
+  margin-bottom: 4px;
+  padding-left: 3px;
+  padding-right: 3px;
+  padding-bottom: 2px;
+  background-color: black;
+  color: magenta;
+  font-family: monospace;
+  font-weight: 500;
+  letter-spacing: 1px;
+  cursor: default;
+}
+
+.excerpt-webCite-text-input-remove-button {
+  display: none;
+}
+
+.excerpt-webCite-text-input {
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  width: 90%;
+  height: 100%;
+  text-align: left;
+  background-color: rgba(112, 128, 144, 0.75);
+  border: 1px solid magenta;
+  border-bottom: 3px solid magenta;
+  color: gainsboro;
+  font-family: monospace;
+  caret-color: magenta;
+}
+
+.excerpt-webCite-text-input:focus {
+  outline: none;
+}
+
+// Grid Photo inputs styles
+.gridPhotosInputs {
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+// Grid photo main display
+.gridPhoto-outter-inputs-container {
+  box-sizing: border-box;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  direction: ltr;
+  background-color: black;
+  border-top: 1px solid blue;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+.gridPhoto-inner-inputs-container {
+  box-sizing: border-box;
+  width: 100%;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.gridPhoto-label {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 1px;
+  padding-bottom: 2px;
+  width: 90%;
+  background-color: black;
+  color: gainsboro;
+  text-align: center;
+  font-family: "Ubuntu", monospace;
+  font-size: 20px;
+  font-weight: 600;
+  letter-spacing: 3px;
+  word-break: break-all;
+  cursor: pointer;
+}
+
+.gridPhoto-label:hover {
+  color: cyan;
+}
+
+.gridPhoto-inputs-remove-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 10%;
+  height: 11px;
+  background-color: crimson;
+  text-shadow: -2px -1px 2px gainsboro;
+  font-size: 50px;
+  font-weight: 300;
+  padding-bottom: 13px;
+  cursor: pointer;
+}
+
+.gridPhoto-inputs-remove-button:hover {
+  background-color: red;
+}
+
+// photo source input
+.gridPhoto-source-file-input-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 3px;
+  margin-bottom: 3px;
+  width: 100%;
+  height: auto;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+.gridPhoto-source-label {
+  display: flex;
+  justify-content: flex-start;
+  height: 100%;
+  align-items: center;
+  margin-bottom: 4px;
+  padding-left: 3px;
+  padding-right: 3px;
+  padding-bottom: 2px;
+  background-color: black;
+  color: cyan;
+  font-family: monospace;
+  font-weight: 500;
+  letter-spacing: 1px;
+  cursor: default;
+}
+
+.gridPhoto-source-file-input-remove-button {
+  display: none;
+}
+
+.gridPhoto-source-file-input {
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  height: 100%;
+  width: 90%;
+  background-color: rgba(112, 128, 144, 0.75);
+  border: 1px solid cyan;
+  border-bottom: 3px solid cyan;
+  color: gainsboro;
+  text-align: left;
+  font-family: monospace;
+  caret-color: cyan;
+}
+
+.gridPhoto-source-file-input:focus {
+  outline: none;
+}
+
+// Styles for end options
+.selectionOptions {
+  width: 10%;
+  height: 100%;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  border: 1px solid red;
+}
+
+.cancelEditButton {
+  width: 100%;
+  height: 33%;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid silver;
+  text-align: center;
+  font-family: monospace;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.annihilateButton {
+  width: 100%;
+  height: 33%;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid red;
+  text-align: center;
+  font-family: monospace;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.saveEditButton {
+  width: 100%;
+  height: 33%;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid lime;
+  text-align: center;
+  font-family: monospace;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+// Styles for media preview display
+// Outter preview display container
+.outterMediaPreviewDisplay {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+  border: 2px solid cyan;
+}
+// Inner preview display
+.innerMediaPreviewDisplay {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+  background-color: black;
+  border: 2px solid rebeccapurple;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+// Inner preview display section
+.innerMediaPreviewDisplaySection {
+  width: 100%;
+  height: 33%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+  background-color: black;
+  border: 2px solid rebeccapurple;
+  overflow: hidden;
+}
+
+// Inner preview display section title
+.innerMediaPreviewDisplaySectionTitle {
+  width: 100%;
+  height: 10%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+  background-color: black;
+  border: 2px solid rebeccapurple;
+  color: gainsboro;
+  text-align: center;
+  font-family: monospace;
+  font-size: 15px;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+// Inner preview display section content area
+.innerMediaPreviewDisplaySectionContentArea {
+  width: 100%;
+  height: 90%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  align-items: center;
+  box-sizing: border-box;
+  background-color: black;
+  border: 2px solid rebeccapurple;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+// Inner preview display section content
+.innerMediaPreviewDisplaySectionContent {
+  width: 18%;
+  height: 98%;
+  margin-top: 3px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+  background-color: black;
+  border: 2px solid rebeccapurple;
+  color: gainsboro;
+  overflow: hidden;
+}
+
+// Inner preview display section content area video data
+.innerMediaPreviewDisplaySectionContentVideoData {
+  width: 100%;
+  height: 100%;
+  display: none;
+  flex-direction: column;
+}
+
+// Inner preview display section content area photo data
+.innerMediaPreviewDisplaySectionContentPhotoData {
+  width: 100%;
+  height: 100%;
+  display: none;
+  object-fit: contain;
+}
+
+// Inner preview display section content area excerpt data
+.innerMediaPreviewDisplaySectionContentExcerptData {
+  width: 100%;
+  height: 100%;
+  display: none;
+  justify-content: center;
+  padding-left: 3px;
+  padding-right: 3px;
+  background-color: gainsboro;
+  color: black;
+  text-align: left;
+  font-family: monospace;
+  font-size: 10px;
+  letter-spacing: 2px;
+  line-height: 15px;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+// Innew preview display section content extended data
+.innerMediaPreviewDisplaySectionContentExtendedData {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-left: 5px;
+  padding-right: 5px;
+  text-align: center;
+  font-family: monospace;
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: 3px;
+  line-height: 20px;
+}
+
+// Class confirmation upload display styles
+.innerMediaPreviewClassConfirmation {
+  box-sizing: border-box;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: black;
+}
+
+.innerMediaPreviewClassConfirmationSubTextContainer {
+  box-sizing: border-box;
+  width: 100%;
+  height: 49%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.innerMediaPreviewClassConfirmationSubTextOne {
+  box-sizing: border-box;
+  width: 100%;
+  height: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 10px;
+  color: gainsboro;
+  text-align: center;
+  font-family: monospace;
+  font-size: 25px;
+  font-weight: 600;
+  letter-spacing: 3px;
+}
+
+.innerMediaPreviewClassConfirmationSubTextTwo {
+  box-sizing: border-box;
+  width: 100%;
+  height: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 10px;
+  color: cadetblue;
+  text-align: center;
+  font-family: monospace;
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: 3px;
+  cursor: pointer;
+}
+
+.innerMediaPreviewClassConfirmationSubTextTwo:hover {
+  color: limegreen;
+  font-weight: 700;
+}
+
+// Character confirmation upload display styles
+.innerMediaPreviewCharacterConfirmation {
+  box-sizing: border-box;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  background-color: black;
+}
+
+.innerMediaPreviewCharacterConfirmationSubTextOne {
+  box-sizing: border-box;
+  width: 100%;
+  height: 49%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: gainsboro;
+  text-align: center;
+  font-family: monospace;
+  font-weight: 700;
+  font-size: 45px;
+  letter-spacing: 5px;
+}
+
+.innerMediaPreviewCharacterConfirmationSubTextTwo {
+  box-sizing: border-box;
+  width: 100%;
+  height: 49%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: gainsboro;
+  color: black;
+  text-align: center;
+  font-family: monospace;
+  font-weight: 700;
+  font-size: 65px;
+  letter-spacing: 5px;
+  cursor: pointer;
+}
+
+.innerMediaPreviewCharacterConfirmationSubTextTwo:hover {
+  border: 1px solid gainsboro;
+  background-color: black;
+  color: rgb(28, 241, 28);
+  text-shadow: 0px 0px 5px 3px gainsboro;
+  font-weight: 800;
+}
+
+// Grid image styling for C1
+.gridImageContainer {
+  width: 18%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 3px;
+  box-sizing: border-box;
+  border-radius: 5px;
+  overflow: hidden;
+  object-fit: contain;
+  cursor: pointer;
+}
+
+.gridImage {
+  width: 100%;
+  height: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  object-fit: contain;
+}
+
+.gridImageExtendedData {
+  width: 100%;
+  height: 100%;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  color: gainsboro;
+  text-align: center;
+  font-family: monospace;
+  font-size: 20px;
+  letter-spacing: 3px;
+}
+
+.excerpt-textarea {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  padding-left: 10px;
+  padding-right: 10px;
+  background-color: gainsboro;
+  color: black;
+  text-align: left;
+  font-family: monospace;
+  font-size: 30px;
+  font-weight: 700;
+  letter-spacing: 4px;
+  line-height: 40px;
+}
+
+// Styles for Data Annihilation Preview Display
+.annihilatePreviewDisplay {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.annihilateTextContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  border: 1px solid maroon;
+  background-color: black;
+}
+
+.annihilateTextOne {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: silver;
+  text-align: center;
+  font-family: monospace;
+  font-size: 30px;
+  font-weight: 700;
+  letter-spacing: 5px;
+}
+
+.annihilateTextTwo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-left: 10px;
+  padding-right: 10x;
+  border: 1px solid red;
+  color: red;
+  text-align: center;
+  font-family: monospace;
+  font-size: 30px;
+  font-weight: 700;
+  letter-spacing: 5px;
+  cursor: pointer;
+}
+
+.annihilateTextTwo:hover {
+  border-color: goldenrod;
+  color: goldenrod;
+  font-size: 35px;
+  letter-spacing: 6px;
+}
+
+.annihilateTextThree {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-left: 10px;
+  padding-right: 10x;
+  border: 1px solid blue;
+  color: blue;
+  text-align: center;
+  font-family: monospace;
+  font-size: 30px;
+  font-weight: 700;
+  letter-spacing: 5px;
+  cursor: pointer;
+}
+
+.annihilateTextThree:hover {
+  border-color: cyan;
+  color: cyan;
+  font-size: 35px;
+  letter-spacing: 6px;
+}

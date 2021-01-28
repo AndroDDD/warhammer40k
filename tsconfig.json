@@ -19,6 +19,8 @@
     "jsx": "react",
     "noEmit": true,
     "typeRoots": ["./types", "./node_modules/@types"],
+    "downlevelIteration": true,
+    "noFallthroughCasesInSwitch": true
   },
   "include": [
     "src"

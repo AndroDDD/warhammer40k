@@ -40,15 +40,15 @@ const CharacterData: React.FC = () => {
         },
         characterDataViewSupport: {
           ...styles.characterDataViewSupport,
-          height: screenHeight - 100,
+          height: screenHeight - 125,
         },
         mainCharDataViewsSupport: {
           ...styles.mainCharDataViewsSupport,
-          height: screenHeight - 155,
+          height: screenHeight - 180,
         },
         mainCharWebExcerptContentSupport: {
           ...styles.mainCharWebExcerptContentSupport,
-          height: screenHeight - 235,
+          height: screenHeight - 260,
         },
       };
     });
@@ -111,7 +111,9 @@ const CharacterData: React.FC = () => {
       setCharactersNavButtonsIndexes(() => {
         let tempCharNavIndexesHold = [];
         for (let i = 0; i < configgedNumberOfCharButtons; i++) {
-          tempCharNavIndexesHold.push(i);
+          if (i <= navCharactersQueriesLength) {
+            tempCharNavIndexesHold.push(i);
+          }
         }
         tempCharNavIndexesHold = tempCharNavIndexesHold.map(
           (characterIndex) => {
@@ -157,14 +159,14 @@ const CharacterData: React.FC = () => {
     mainDisplaySupport: { width: "100%", height: screenHeight },
     mainDisplaySubSupport: `mainDisplaySubSupport`,
     mainCharDataView: styles2.mainCharDataView,
-    mainCharDataViewsSupport: { height: screenHeight - 155 },
+    mainCharDataViewsSupport: { height: screenHeight - 180 },
     mainCharVideosView: styles2.mainCharVideosView,
     mainCharPhotosView: styles2.mainCharPhotosView,
     mainCharModelPhoto: `mainCharModelPhoto`,
     mainCharWebExcerptsView: styles2.mainCharWebExcerptsView,
     mainCharWebExcerptHeader: styles2.mainCharWebExcerptHeader,
     mainCharWebExcerptContent: styles2.mainCharWebExcerptContent,
-    mainCharWebExcerptContentSupport: { height: screenHeight - 235 },
+    mainCharWebExcerptContentSupport: { height: screenHeight - 260 },
     mainCharWebExcerptContentSupportv2: `mainCharWebExcerptContentSupportv2`,
     mainCharWebExcerptTitle: styles2.mainCharWebExcerptTitle,
     mainCharWebExcerptReference: styles2.mainCharWebExcerptReference,
@@ -175,11 +177,15 @@ const CharacterData: React.FC = () => {
     mainCharSwitchIndexViewNavButton: `mainCharSwitchIndexViewNavButton`,
     mainCharSwitchIndexViewNav: styles2.mainCharSwitchIndexViewNav,
     characterDataView: styles2.characterDataView,
-    characterDataViewSupport: { height: screenHeight - 100 },
+    characterDataViewSupport: { height: screenHeight - 125 },
     characterDataCoverView: styles2.characterDataCoverView,
     characterCoverImage: `characterCoverImage`,
     charactersNavbarView: styles2.charactersNavbarView,
-    charactersNavbarViewSupport: { height: 100 },
+    charactersNavbarViewSupport: { height: 125 },
+    charactersDataNavbarContainer: `charactersDataNavbarContainer`,
+    charactersSelectionSection: `charactersSelectionSection`,
+    classSelectionSection: `classSelectionSection`,
+    classSelectionSectionLabel: `classSelectionSectionLabel`,
     charactersNavbarViewCover: styles2.charactersNavbarViewCover,
     charactersNavbarViewCoverImage: `charactersNavbarViewCoverImage`,
     charactersNavbarViewCoverImageSupport: `charactersNavbarViewCoverImageSupport`,
@@ -224,7 +230,7 @@ const CharacterData: React.FC = () => {
       date: ``,
       description: ``,
       name: ``,
-      primarchImages: {
+      characterImages: {
         gridImage: `https://vignette.wikia.nocookie.net/warhammer40k/images/a/a8/AquilaBlack.jpg/revision/latest?cb=20170423020507`,
         modelImage: [``],
       },
@@ -241,7 +247,7 @@ const CharacterData: React.FC = () => {
         date: ``,
         description: ``,
         name: ``,
-        primarchImages: {
+        characterImages: {
           gridImage: `https://vignette.wikia.nocookie.net/warhammer40k/images/a/a8/AquilaBlack.jpg/revision/latest?cb=20170423020507`,
           modelImage: [``],
         },
@@ -252,6 +258,15 @@ const CharacterData: React.FC = () => {
       };
     }
   );
+
+  // Declare variable holding all classes data
+  const [classesData, setClassesData] = React.useState(() => {
+    return {
+      [`initializeViewUpdate`]: 0,
+      [`current`]: { [`id`]: ``, [`name`]: `` },
+      [`all`]: [],
+    };
+  });
 
   // Declare variable tracking current main character data view
   const [currentCharDataView, setCurrentCharDataView] = React.useState(
@@ -270,14 +285,15 @@ const CharacterData: React.FC = () => {
   const [currentCharPhotosIndex, setCurrentCharPhotosIndex] = React.useState(0);
 
   // Declare variable holding index of currently selected character
-  const [selectedCharacterIndex, setSelectedCharacterIndex] = React.useState<
-    number
-  >();
+  const [
+    selectedCharacterIndex,
+    setSelectedCharacterIndex,
+  ] = React.useState<number>();
 
   // Declare variable holding character cover image src
   const [prevCharacterCoverImage, setPrevCharacterCoverImage] = React.useState(
     () => {
-      return characterData.primarchImages.gridImage;
+      return characterData.characterImages.gridImage;
     }
   );
 
@@ -325,39 +341,79 @@ const CharacterData: React.FC = () => {
   const initializeCharacterDataRetrieval = (
     characterIndexToRetrieve?: number
   ) => {
-    console.log({
-      initializationFunctionCharIndexv1: characterIndexToRetrieve,
-    });
-    fetchCharacterData(characterIndexToRetrieve, {
-      opts: "updateLocalState",
-      exe: (retrievedCharactersQueries: any, retrievedCharacterData: any) => {
-        console.log({
-          initializationFunctionCharIndexv2: characterIndexToRetrieve,
-        });
-        if (charactersQueries[0].id === ``) {
-          setCharactersQueries(retrievedCharactersQueries);
-        }
-        if (characterIndexToRetrieve || characterIndexToRetrieve === 0) {
+    if (classesData[`current`][`id`] === ``) {
+      fetchCharacterData(characterIndexToRetrieve, {
+        opts: "updateLocalState",
+        exe: (
+          retrievedCharactersQueries: any,
+          retrievedCharacterData: any,
+          retrievedClassesData: any
+        ) => {
           console.log({
-            initializationFunctionCharIndexv3: characterIndexToRetrieve,
+            initializationFunctionCharIndexv2: characterIndexToRetrieve,
           });
-          setPreviousCharacterData(retrievedCharacterData);
-        }
-      },
-    });
+          if (charactersQueries[0].id === ``) {
+            setCharactersQueries(retrievedCharactersQueries);
+          }
+          if (characterIndexToRetrieve || characterIndexToRetrieve === 0) {
+            setPreviousCharacterData(retrievedCharacterData);
+          }
+          console[`log`]({ retrievedClassesData });
+          setClassesData((prevClassesData) => {
+            return {
+              ...prevClassesData,
+              [`current`]: retrievedClassesData[`specified`],
+              [`all`]: retrievedClassesData[`all`],
+            };
+          });
+        },
+      });
+    } else {
+      fetchCharacterData(
+        characterIndexToRetrieve,
+        {
+          opts: "updateLocalState",
+          exe: (
+            retrievedCharactersQueries: any,
+            retrievedCharacterData: any,
+            retrievedClassesData: any
+          ) => {
+            console.log({
+              initializationFunctionCharIndexv2: characterIndexToRetrieve,
+            });
+
+            setCharactersQueries(retrievedCharactersQueries);
+
+            if (characterIndexToRetrieve || characterIndexToRetrieve === 0) {
+              setPreviousCharacterData(retrievedCharacterData);
+            }
+            console[`log`]({ retrievedClassesData, classesData });
+            setClassesData((prevClassesData) => {
+              return {
+                ...prevClassesData,
+                [`initializeViewUpdate`]:
+                  classesData[`initializeViewUpdate`] + 1,
+                [`all`]: retrievedClassesData[`all`],
+              };
+            });
+          },
+        },
+        classesData[`current`][`id`]
+      );
+    }
   };
 
   // Handle initial character data retrieval
   React.useEffect(() => {
     // Execute initialization
     initializeCharacterDataRetrieval();
-  }, []);
+  }, [classesData[`current`]]);
 
   // Handle etc... updates on character data change
   React.useEffect(() => {
     // Handle holding previous character cover image for cover image transition on data change
     setPrevCharacterCoverImage(() => {
-      let prevCoverImageToSave = characterData.primarchImages.gridImage;
+      let prevCoverImageToSave = characterData.characterImages.gridImage;
       console.log({ characterDataChangeEtcProcesses: prevCoverImageToSave });
       return prevCoverImageToSave;
     });
@@ -510,7 +566,7 @@ const CharacterData: React.FC = () => {
                 )
                 .set(characterCoverImageRef.current, {
                   attr: {
-                    src: characterData.primarchImages.gridImage,
+                    src: characterData.characterImages.gridImage,
                     alt: characterData.name,
                   },
                 })
@@ -546,7 +602,7 @@ const CharacterData: React.FC = () => {
                 )
                 .set(characterCoverImageRef.current, {
                   attr: {
-                    src: characterData.primarchImages.gridImage,
+                    src: characterData.characterImages.gridImage,
                     alt: characterData.name,
                   },
                 })
@@ -877,7 +933,7 @@ const CharacterData: React.FC = () => {
               <img
                 ref={mainCharModelPhotoRef}
                 src={
-                  characterData.primarchImages.modelImage[
+                  characterData.characterImages.modelImage[
                     currentCharPhotosIndex
                   ]
                 }
@@ -1006,7 +1062,7 @@ const CharacterData: React.FC = () => {
                       setCurrentCharPhotosIndex(() => {
                         if (
                           currentCharPhotosIndex <
-                          characterData.primarchImages.modelImage.length - 1
+                          characterData.characterImages.modelImage.length - 1
                         ) {
                           return currentCharPhotosIndex + 1;
                         } else {
@@ -1050,7 +1106,7 @@ const CharacterData: React.FC = () => {
                           return currentCharPhotosIndex - 1;
                         } else {
                           return (
-                            characterData.primarchImages.modelImage.length - 1
+                            characterData.characterImages.modelImage.length - 1
                           );
                         }
                       });
@@ -1074,64 +1130,136 @@ const CharacterData: React.FC = () => {
             styles.charactersNavbarViewSupport,
           ]}
         >
-          <button
-            ref={prevCharacterNavButtonRef}
-            className={styles.prevCharacterNavButton}
-            onClick={(event) => {
-              console.log(`clicking`);
-              let trueLastCharIndex = charactersQueries.length - 1;
-              let tempCharNavButIndexesHold = charactersNavButtonsIndexes.map(
-                (characterIndex) => {
-                  console.log(`in range`);
-                  if (
-                    characterIndex > 0 &&
-                    characterIndex <= trueLastCharIndex
-                  ) {
-                    return characterIndex - 1;
-                  } else {
-                    console.log(`out of range`);
-                    return trueLastCharIndex;
-                  }
-                }
-              );
-              setCharactersNavButtonsIndexes(tempCharNavButIndexesHold);
-            }}
-          >
-            <img
-              src={require("../../../Media/Icons/chevron_left-24px.svg")}
-              alt={`view previous character`}
-              className={styles.defaultIconStyle}
-            />
-          </button>
-          {charactersNavButtonsIndexes.map((characterIndex) => {
-            return charactersNavButtons[characterIndex];
-          })}
-          <button
-            ref={nextCharacterNavButtonRef}
-            className={styles.nextCharacterNavButton}
-            onClick={(event) => {
-              let trueLastCharIndex = charactersQueries.length - 1;
-              let tempCharNavButIndexesHold = charactersNavButtonsIndexes.map(
-                (characterIndex) => {
-                  if (
-                    characterIndex < trueLastCharIndex &&
-                    characterIndex >= 0
-                  ) {
-                    return characterIndex + 1;
-                  } else {
-                    return 0;
-                  }
-                }
-              );
-              setCharactersNavButtonsIndexes(tempCharNavButIndexesHold);
-            }}
-          >
-            <img
-              src={require("../../../Media/Icons/chevron_right-24px.svg")}
-              alt={`view next character`}
-              className={styles.defaultIconStyle}
-            />
-          </button>
+          <div className={styles[`charactersDataNavbarContainer`]}>
+            <div className={styles[`charactersSelectionSection`]}>
+              <button
+                ref={prevCharacterNavButtonRef}
+                className={styles.prevCharacterNavButton}
+                style={{ height: `80%` }}
+                onClick={(event) => {
+                  console.log(`clicking`);
+                  let trueLastCharIndex = charactersQueries.length - 1;
+                  let tempCharNavButIndexesHold = charactersNavButtonsIndexes.map(
+                    (characterIndex) => {
+                      console.log(`in range`);
+                      if (
+                        characterIndex > 0 &&
+                        characterIndex <= trueLastCharIndex
+                      ) {
+                        return characterIndex - 1;
+                      } else {
+                        console.log(`out of range`);
+                        return trueLastCharIndex;
+                      }
+                    }
+                  );
+                  setCharactersNavButtonsIndexes(tempCharNavButIndexesHold);
+                }}
+              >
+                <img
+                  src={require("../../../Media/Icons/chevron_left-24px.svg")}
+                  alt={`view previous character`}
+                  className={styles.defaultIconStyle}
+                />
+              </button>
+              {charactersNavButtonsIndexes.map((characterIndex) => {
+                return charactersNavButtons[characterIndex];
+              })}
+              <button
+                ref={nextCharacterNavButtonRef}
+                className={styles.nextCharacterNavButton}
+                style={{ height: `80%` }}
+                onClick={(event) => {
+                  let trueLastCharIndex = charactersQueries.length - 1;
+                  let tempCharNavButIndexesHold = charactersNavButtonsIndexes.map(
+                    (characterIndex) => {
+                      if (
+                        characterIndex < trueLastCharIndex &&
+                        characterIndex >= 0
+                      ) {
+                        return characterIndex + 1;
+                      } else {
+                        return 0;
+                      }
+                    }
+                  );
+                  setCharactersNavButtonsIndexes(tempCharNavButIndexesHold);
+                }}
+              >
+                <img
+                  src={require("../../../Media/Icons/chevron_right-24px.svg")}
+                  alt={`view next character`}
+                  className={styles.defaultIconStyle}
+                />
+              </button>
+            </div>
+            <div className={styles[`classSelectionSection`]}>
+              <button
+                className={styles[`prevCharacterNavButton`]}
+                style={{ height: `20%` }}
+                onClick={(event) => {
+                  setClassesData((prevClassesData) => {
+                    const allClassesData = prevClassesData[`all`];
+                    const currentClassIndex = allClassesData[`findIndex`](
+                      (cData) =>
+                        cData[`id`] === prevClassesData[`current`][`id`]
+                    );
+                    let prevClassData = prevClassesData[`current`];
+                    if (currentClassIndex > -1) {
+                      if (currentClassIndex < 1) {
+                        prevClassData =
+                          allClassesData[allClassesData[`length`] - 1];
+                      } else {
+                        prevClassData = allClassesData[currentClassIndex - 1];
+                      }
+                    } else {
+                      prevClassData = allClassesData[0];
+                    }
+                    return { ...prevClassesData, [`current`]: prevClassData };
+                  });
+                }}
+              >
+                <img
+                  src={require("../../../Media/Icons/chevron_left-24px.svg")}
+                  alt={`view previous classes`}
+                  className={styles.defaultIconStyle}
+                />
+              </button>
+              <div
+                className={styles[`classSelectionSectionLabel`]}
+              >{`${classesData[`current`][`name`][`toUpperCase`]()}`}</div>
+              <button
+                className={styles[`nextCharacterNavButton`]}
+                style={{ height: `20%` }}
+                onClick={(event) => {
+                  setClassesData((prevClassesData) => {
+                    const allClassesData = prevClassesData[`all`];
+                    const currentClassIndex = allClassesData[`findIndex`](
+                      (cData) =>
+                        cData[`id`] === prevClassesData[`current`][`id`]
+                    );
+                    let nextClassData = prevClassesData[`current`];
+                    if (currentClassIndex > -1) {
+                      if (currentClassIndex >= allClassesData[`length`] - 1) {
+                        nextClassData = allClassesData[0];
+                      } else {
+                        nextClassData = allClassesData[currentClassIndex + 1];
+                      }
+                    } else {
+                      nextClassData = allClassesData[0];
+                    }
+                    return { ...prevClassesData, [`current`]: nextClassData };
+                  });
+                }}
+              >
+                <img
+                  src={require("../../../Media/Icons/chevron_right-24px.svg")}
+                  alt={`view next classes`}
+                  className={styles.defaultIconStyle}
+                />
+              </button>
+            </div>
+          </div>
           <View
             ref={charactersNavbarViewCoverRef}
             style={styles.charactersNavbarViewCover}
